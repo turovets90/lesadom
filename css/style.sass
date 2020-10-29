@@ -1,0 +1,1979 @@
+@import "bootstrap"
+@import "slick-less"
+@import "ui"
+=b_a()
+  content: ''
+  position: absolute
+
+=m_a()
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  margin: auto
+
+
+=flex()
+  display: flex
+  display: -webkit-flex
+
+=j-center()
+  justify-content: center
+  -webkit-justify-content: center
+
+=j-beetween()
+  justify-content: space-between
+  -webkit-justify-content: space-between
+
+=j-space-around()
+  justify-content: space-around
+  -webkit-justify-content: space-around
+
+=j-end()
+  justify-content: flex-end
+  -webkit-justify-content: flex-end
+
+=j-start()
+  justify-content: flex-start
+  -webkit-justify-content: flex-start
+
+=ai-center()
+  align-items: center
+  -webkit-align-items: center
+
+=ai-start()
+  align-items: flex-start
+  -webkit-align-items: flex-start
+
+=ai-end()
+  align-items: flex-end
+  -webkit-align-items: flex-end
+
+=as-center()
+  align-self: center
+  -webkit-align-self: center
+
+=as-end()
+  align-self: flex-end
+  -webkit-align-self: flex-end
+
+=as-start()
+  align-self: flex-start
+  -webkit-align-self: flex-start
+
+=wrap()
+  flex-wrap: wrap
+  -webkit-flex-wrap: wrap
+
+=col()
+  flex-direction: column
+  -webkit-flex-direction: column
+
+
+=border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+  border-radius: $radius
+
+
+=box-shadow($box-shadow)
+  -webkit-box-shadow: $box-shadow
+  -moz-box-shadow: $box-shadow
+  box-shadow: $box-shadow
+
+
+=transform($transform)
+  transform: $transform
+  -webkit-transform: $transform
+  -moz-transform: $transform
+  -ms-transform: $transform
+  -o-transform: $transform
+
+
+=transition($transition_default)
+  transition: $transition_default
+  -webkit-transition: $transition_default
+  -moz-transition: $transition_default
+  -o-transition: $transition_default
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap')
+
+
+$roboto: 'Roboto', sans-serif
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap')
+
+$raleway: 'Raleway', sans-serif
+$transition_default: .3s linear
+
+$color_blue: #426492
+$color_orange: #F76431
+$gradient_orange: linear-gradient(180deg, #E65D2E 0%, #D7320B 100%)
+$gradient_blue: linear-gradient(180deg, #426492 0%, #36577A 134.55%)
+$gradient_btn: linear-gradient(180deg, #F76431 0%, #E45C2D 100%)
+$bg_grey: #E5E5E5
+$border_grey: 1px solid #DFDFDF
+$border_color: #DFDFDF
+
+a, button
+  +transition($transition_default)
+
+a
+  text-decoration: underline
+  color: $color_orange
+
+  &:hover, &:focus
+    text-decoration: none
+    color: $color_blue
+
+
+button, input, .form-control
+  outline: none
+
+.form-control
+  &:hover, &:focus
+    box-shadow: none
+    outline: none
+
+
+button
+  cursor: pointer
+  &:hover, &:focus
+    +box-shadow(none)
+    outline: none
+
+img, video
+  max-width: 100%
+
+
+ul
+  padding: 0
+  margin: 0
+  li
+    list-style: none
+
+
+.container
+  max-width: 1230px
+
+body
+  font-size: 12px
+  line-height: 1.9
+  color: #666
+  font-family: $raleway
+
+
+header
+  padding: 30px 0
+  border-bottom: 2px solid #DFDFDF
+  @media (max-width: 1200px)
+    padding: 20px 0
+  @media (max-width: 767px)
+    padding: 10px 0
+
+.search_box
+  +flex
+  +ai-center
+  width: 100%
+  .search_form
+    width: 100%
+    background: #F8F8F9
+    border: 1px solid #DFDFDF
+    +border-radius(3px)
+    +flex
+    +ai-center
+    .form-control
+      width: calc(100% - 35px)
+      height: 35px
+      background: none
+      +border-radius(3px 0 0 3px)
+      border: 0
+      &::-webkit-input-placeholder
+        color: #808080
+        font-size: 12px
+        font-family: $raleway
+      &::-moz-placeholder
+        color: #808080
+        font-size: 12px
+        font-family: $raleway
+      &::-ms-input-placeholder
+        color: #808080
+        font-size: 12px
+        font-family: $raleway
+      &:-moz-placeholder
+        color: #808080
+        font-size: 12px
+        font-family: $raleway
+      &:-ms-input-placeholder
+        color: #808080
+        font-size: 12px
+        font-family: $raleway
+    .btn_search
+      position: relative
+      width: 35px
+      height: 35px
+      +border-radius(0 3px 3px 0)
+      background: $gradient_blue
+      border: 0
+      +transition($transition_default)
+      &:hover
+        background: $gradient_orange
+      &:before
+        +b_a
+        +m_a
+        width: 18px
+        height: 18px
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M13.9123 7.32758C13.9123 10.8059 11.0382 13.6552 7.45614 13.6552C3.87404 13.6552 1 10.8059 1 7.32758C1 3.84928 3.87404 1 7.45614 1C11.0382 1 13.9123 3.84928 13.9123 7.32758Z' stroke='white' stroke-width='2'/%3e%3cpath d='M12.5264 12.6038L17.0001 17.0003' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+
+
+
+
+.c_box
+  +flex
+  +ai-center
+  +wrap
+  @media (max-width: 1200px)
+    margin-left: 20px
+  li
+    width: 50%
+    @media (max-width: 1200px)
+      width: 100%
+
+
+.phone
+  position: relative
+  padding-left: 25px
+  font-family: $roboto
+  font-weight: 700
+  font-size: 16px
+  color: #323232
+  text-decoration: none
+  &:hover
+    color: $color_orange
+  &:before
+    +b_a
+    left: 0
+    top: 0
+    bottom: 0
+    margin: auto
+    width: 12px
+    height: 12px
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M11.3333 8.33333C10.5 8.33333 9.7 8.2 8.95333 7.95333C8.72 7.88 8.46 7.93333 8.27333 8.11333L6.80667 9.58C4.92 8.62 3.37333 7.08 2.41333 5.18667L3.88 3.71333C4.06667 3.54 4.12 3.28 4.04667 3.04667C3.8 2.3 3.66667 1.5 3.66667 0.666667C3.66667 0.3 3.36667 0 3 0H0.666667C0.3 0 0 0.3 0 0.666667C0 6.92667 5.07333 12 11.3333 12C11.7 12 12 11.7 12 11.3333V9C12 8.63333 11.7 8.33333 11.3333 8.33333Z' fill='%23323232'/%3e%3c/svg%3e ")
+
+
+.location
+  position: relative
+  display: inline-block
+  padding-left: 20px
+  font-size: 12px
+  line-height: 14px
+  color: #323232
+  white-space: nowrap
+  margin-left: 35px
+  @media (max-width: 1200px)
+    margin-left: 0
+  &:before
+    +b_a
+    left: 0
+    top: 0
+    width: 11px
+    height: 15px
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='11' height='15' viewBox='0 0 11 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.5 0C2.45929 0 0 2.3475 0 5.25C0 9.1875 5.5 15 5.5 15C5.5 15 11 9.1875 11 5.25C11 2.3475 8.54071 0 5.5 0ZM5.5 7.125C4.41571 7.125 3.53571 6.285 3.53571 5.25C3.53571 4.215 4.41571 3.375 5.5 3.375C6.58429 3.375 7.46429 4.215 7.46429 5.25C7.46429 6.285 6.58429 7.125 5.5 7.125Z' fill='%23332222'/%3e%3c/svg%3e ")
+
+
+
+.header_row
+  +flex
+  //+wrap
+  +j-beetween
+  +ai-center
+  width: 100%
+  @media (max-width: 767px)
+    display: none
+  .search_box
+    width: 100%
+    max-width: 385px
+
+
+.mm_btn
+  width: 30px
+  height: 25px
+  margin-left: 10px
+  @media (min-width: 992px)
+    display: none
+  .hamburger
+    width: 30px
+    height: 25px
+    background: none
+    border: 0
+    position: relative
+    span
+      position: absolute
+      width: 100%
+      height: 3px
+      background: $color_orange
+      left: 0
+      +border-radius(2px)
+      &:nth-child(1)
+        top: 0
+      &:nth-child(2)
+        top: 0
+        bottom: 0
+        margin: auto
+      &:nth-child(3)
+        bottom: 0
+
+
+
+.c_nav
+  > li
+    position: relative
+  @media (max-width: 991px)
+    margin-bottom: 10px
+  .c_subnav_m
+    display: none
+  li
+    a.nav_link
+      background: $gradient_orange
+      +border-radius(0 0 3px 3px)
+      @media (max-width: 991px)
+        background: $gradient_blue
+        +border-radius(3px)
+
+      &:hover
+        background: $gradient_blue
+        @media (max-width: 991px)
+          background: $gradient_orange
+
+.main_menu
+  margin-bottom: 20px
+
+  @media (max-width: 991px)
+    position: fixed
+    top: 0
+    right: 0
+    width: 80%
+    height: 100%
+    background: #ccc
+    padding-top: 60px
+    z-index: 999
+    +transform(translateX(100%))
+    +transition($transition_default)
+    opacity: 1
+    &.open
+      opacity: 1
+      +transform(translateX(0))
+
+  .mm_close
+    width: 30px
+    height: 30px
+    margin-bottom: 30px
+    position: absolute
+    left: 0
+    top: 0
+    background: #fff
+    cursor: pointer
+    &:before, &:after
+      +b_a
+      +m_a
+      width: 25px
+      height: 1px
+      background: $color_orange
+    &:after
+      +transform(rotate(45deg))
+    &:before
+      +transform(rotate(-45deg))
+
+    @media (min-width: 992px)
+      display: none
+  .main_nav
+    +flex
+    +wrap
+    +border-radius(0 0 3px 3px)
+    overflow: hidden
+    li
+      @media (min-width: 992px)
+        flex-grow: 1
+      @media (max-width: 991px)
+        width: 100%
+        margin-bottom: 10px
+      + li
+        border-left: 1px solid rgba(50, 50, 50, 0.8)
+
+      a.nav_link
+        background: $gradient_blue
+        &:hover
+          background: $gradient_orange
+
+.nav_link
+  +flex
+  +ai-center
+  +j-center
+  width: 100%
+  height: 55px
+  font-size: 15px
+  font-weight: 700
+  font-family: $raleway
+  color: #fff
+  text-decoration: none
+  @media (max-width: 1200px)
+    height: 45px
+    font-size: 14px
+  @media (max-width: 991px)
+    height: 40px
+  &:hover
+    color: #fff
+
+
+
+
+.c_subnav
+  border: $border_grey
+  background: #ffffff
+  +border-radius(3px)
+  .level1
+    position: relative
+
+    &.active
+      > a
+        &:before
+          display: none
+      &:hover
+        > a
+          color: #fff
+
+      > ul
+        display: block
+      .arrow
+        &:before
+          +transform(rotate(90deg))
+          background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='6' height='9' viewBox='0 0 6 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1L5 4.5L1 8' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+      > a
+        background: $gradient_orange
+        color: #ffffff
+    &:hover
+
+      > a
+        color: $color_orange
+        &:before
+          right: 0
+          width: 100%
+
+    + .level1
+      border-top: 1px solid $border_color
+    .arrow
+      position: absolute
+      right: 0
+      top: 7px
+      width: 40px
+      height: 30px
+      cursor: pointer
+      &:before
+        +b_a
+        +m_a
+        width: 6px
+        height: 9px
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='6' height='9' viewBox='0 0 6 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1L5 4.5L1 8' stroke='%23808080' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+        +transition($transition_default)
+
+
+    > a
+      display: inline-block
+      color: #323232
+      font-size: 14px
+      text-decoration: none
+      line-height: 20px
+      width: 100%
+      padding: 12px 40px 12px 20px
+      position: relative
+      &:before
+        +b_a
+        width: 0
+        height: 3px
+        background: $color_orange
+        left: 0
+        bottom: 0
+        +transition($transition_default)
+
+
+    .level2
+      padding: 6px 20px
+      &:hover, &.active
+        > a
+          color: $color_orange
+          text-decoration: underline
+          &:before
+            background: $color_orange
+      > a
+        display: inline-block
+        position: relative
+        font-size: 14px
+        line-height: 20px
+        color: #323232
+        padding-left: 20px
+        padding-right: 20px
+        text-decoration: none
+        &:before
+          +b_a
+          width: 10px
+          height: 1px
+          background: #323232
+          top: 10px
+          left: 0
+    ul
+      padding: 12px 0
+      display: none
+
+
+main
+  background: #F8F8F9
+  padding-bottom: 30px
+  @media (max-width: 991px)
+    padding-top: 20px
+
+
+
+.main_slider
+  position: relative
+  .slick-dots
+    position: absolute
+    bottom: 20px
+    width: 100%
+    +flex
+    +ai-center
+    +j-center
+    li
+      +flex
+      margin: 0 7px
+      &.slick-active
+        button
+          background: $color_orange
+      button
+        background: #DFDFDF
+        min-width: 10px
+        width: 10px
+        height: 10px
+        border: 0
+        +border-radius(50%)
+        display: inline-block
+        text-indent: -9999px
+        padding: 0
+  .main_slider_item
+    background-size: cover
+    background-position: center
+    height: 420px
+    position: relative
+    padding: 30px 100px
+    @media (max-width: 1200px)
+      height: 400px
+      padding: 30px
+    @media (max-width: 767px)
+      padding: 15px
+      height: 350px
+    @media (max-width: 575px)
+      height: 300px
+
+    &:before
+      +b_a
+      left: 0
+      top: 0
+      height: 100%
+      width: 70%
+      background: linear-gradient(101.03deg, rgba(49, 52, 40, 0.64) -12.62%, rgba(64, 83, 13, 0.56) 37.94%, rgba(61, 91, 15, 0) 90.65%)
+    @media (max-width: 767px)
+      width: 100%
+
+    .ms_content
+      position: relative
+      z-index: 2
+      max-width: 340px
+      height: 100%
+      +flex
+      +ai-center
+      .ms_title
+        color: #fff
+        font: 700 34px/46px $raleway
+        margin-bottom: 18px
+        @media (max-width: 1200px)
+          font-size: 30px
+          line-height: 1.2
+        @media (max-width: 767px)
+          font-size: 25px
+      .ms_desc
+        color: #fff
+        font: 14px/16px $raleway
+        margin-bottom: 20px
+
+
+.btn_default
+  background:  linear-gradient(180deg, #E55D2E 0%, #D6320B 100%)
+  color: #fff
+  height: 45px
+  width: 100%
+  max-width: 180px
+  +flex
+  +ai-center
+  +j-center
+  border: 0
+  text-decoration: none
+  font-size: 14px
+  font-family: $raleway
+  +border-radius(3px)
+  @media (max-width: 767px)
+    height: 40px
+
+  &:hover
+    text-decoration: none
+    background: linear-gradient(180deg, #F86432 0%, #E45C2D 100%)
+    color: #fff
+
+
+
+.mmw-100
+  @media (max-width: 991px)
+    flex: 0 0 100%
+    max-width: 100%
+.m_hide
+  @media (max-width: 991px)
+    display: none
+
+.catalog_slider
+  margin-bottom: 45px
+  @media (max-width: 1200px)
+    margin-bottom: 30px
+  @media (max-width: 767px)
+    margin-bottom: 20px
+
+.pr_list
+  background: #FFFFFF
+  border: 1px solid #DFDFDF
+  +border-radius(3px)
+  padding: 35px 0
+  .row
+    margin: 0
+    > div
+      padding: 0 35px
+      @media (max-width: 1200px)
+        margin-bottom: 20px
+        &:last-child
+          margin-bottom: 0
+      @media (max-width: 767px)
+        padding: 0 15px
+      @media (min-width: 1201px)
+        +flex
+        +j-center
+      + div
+        @media (min-width: 1201px)
+          border-left: 1px solid #DFDFDF
+  .pr_item
+    +flex
+
+    picture
+      display: inline-block
+      width: 41px
+      min-width: 41px
+      height: 41px
+      position: relative
+      +border-radius(3px)
+      background: #F7F7F7
+      border: 1px solid #DFDFDF
+      margin-right: 15px
+      img
+        position: absolute
+        +m_a
+    .text
+      .pr_title
+        font-size: 14px
+        color: #323232
+        font-family: $roboto
+        font-weight: 500
+        margin-bottom: 8px
+        line-height: 1
+      span
+        color: #808080
+        font-size: 13px
+        line-height: 15px
+        font-family: $roboto
+        display: inline-block
+
+
+
+
+h1, .h1, .page_title
+  position: relative
+  font-size: 34px
+  line-height: 1.2
+  font-family: $raleway
+  font-weight: 600
+  color: #323232
+  border-bottom: 1px solid #DFDFDF
+  padding-bottom: 20px
+  margin-top: 45px
+  margin-bottom: 30px
+  @media (max-width: 1200px)
+    font-size: 30px
+    margin-top: 30px
+  @media (max-width: 991px)
+    font-size: 28px
+    padding-bottom: 25px
+  @media (max-width: 767px)
+    font-size: 25px
+    padding-bottom: 10px
+  &:before
+    +b_a
+    left: 0
+    bottom: -2px
+    width: 77px
+    height: 3px
+    background: $color_blue
+
+
+.main_catalog_list
+  > div
+    margin-bottom: 25px
+    @media (max-width: 575px)
+      margin-bottom: 10px
+  .item
+    position: relative
+    background: #fff
+    +border-radius(3px)
+    border: 1px solid #DFDFDF
+    min-height: 193px
+    height: 100%
+    padding: 25px 20px
+    +transition($transition_default)
+    &:hover
+      +box-shadow(3px 4px 35px rgba(0, 0, 0, 0.12))
+      border: 1px solid #fff
+
+    img
+      position: absolute
+      right: 0
+      bottom: 0
+      max-height: 99%
+    .item_title
+      font-family: $raleway
+      font-weight: 600
+      font-size: 16px
+      line-height: 19px
+      color: #323232
+      position: relative
+      display: inline-block
+      z-index: 1
+      margin-bottom: 10px
+      text-decoration: none
+      &:hover
+        color: $color_orange
+    .item_desc
+      color: #666
+      font-family: $raleway
+      font-size: 12px
+      line-height: 19px
+      z-index: 2
+      position: relative
+      max-width: 378px
+      background: rgba(255, 255, 255, 0.7)
+      +border-radius(3px)
+
+
+
+
+.news_list
+  > div
+    @media (max-width: 1200px)
+      margin-bottom: 20px
+  .news_item
+    width: 100%
+    +flex
+    +wrap
+    +transition($transition_default)
+    @media (max-width: 991px)
+      +box-shadow(3px 4px 35px rgba(0, 0, 0, 0.12))
+    &:hover
+      @media (min-width: 992px)
+        +box-shadow(3px 4px 35px rgba(0, 0, 0, 0.12))
+        .news_img
+          +border-radius(3px 3px 0 0)
+          .date
+            +border-radius(2px 2px 0 0)
+        .news_item_body
+          background: #fff
+          .read_more
+            opacity: 1
+
+    .news_img
+      display: inline-block
+      background-position: center
+      background-size: cover
+      position: relative
+      width: 100%
+      height: 195px
+      +border-radius(3px)
+      @media (max-width: 991px)
+        +border-radius(3px 3px 0 0)
+      .date
+        position: absolute
+        bottom: 0
+        left: 0
+        background: $color_orange
+        width: 100px
+        height: 30px
+        +flex
+        +ai-center
+        +j-center
+        +border-radius(2px)
+        color: #fff
+        font-size: 12px
+        font-family: $roboto
+
+    .news_item_body
+      width: 100%
+      padding: 15px 20px 20px
+      +border-radius(0 0 3px 3px)
+      +transition($transition_default)
+      @media (max-width: 991px)
+        background: #fff
+      .news_item_title
+        color: #323232
+        font-family: $raleway
+        font-weight: 600
+        font-size: 14px
+        line-height: 1.2
+        margin-bottom: 12px
+      .news_item_except
+        color: #666
+        font-size: 13px
+        line-height: 15px
+        font-family: $roboto
+        margin-bottom: 15px
+      .read_more
+        @media (min-width: 992px)
+          opacity: 0
+.read_more
+  display: inline-block
+  position: relative
+  color: $color_orange
+  font-family: $raleway
+  font-size: 14px
+  font-weight: 700
+  &:hover
+    color: $color_orange
+  span
+    display: inline-block
+    position: relative
+    padding-right: 25px
+    &:before
+      +b_a
+      right: 0
+      top: 0
+      bottom: 0
+      margin: auto
+      width: 14px
+      height: 9px
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='14' height='9' viewBox='0 0 14 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M8.5 1L12.5 4.5L8.5 8' stroke='%23F76431' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3cpath d='M12.5 4.5H1' stroke='%23F76431' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+
+
+.subscribe_box
+  background: $gradient_blue
+  padding: 45px 0
+  @media (max-width: 1200px)
+    padding: 30px 0
+  .subscribe_flex
+    +flex
+    +ai-center
+    +j-beetween
+    @media (max-width: 991px)
+      +wrap
+    .col1
+      +flex
+      +ai-center
+      margin-right: 60px
+      @media (max-width: 1200px)
+        margin-right: 30px
+      @media (max-width: 767px)
+        width: 100%
+        margin-bottom: 10px
+        margin-right: 0
+      img
+        margin-right: 25px
+      .text
+        font-size: 20px
+        line-height: 1.2
+        color: #fff
+        font-weight: 600
+        font-family: $raleway
+    .col2
+      font-size: 13px
+      color: #ffffff
+      line-height: 19px
+      font-family: $raleway
+      max-width: 210px
+      margin-right: 60px
+      @media (max-width: 1200px)
+        margin-right: 30px
+      @media (max-width: 767px)
+        width: 100%
+        margin-right: 0
+    .col3
+      @media (max-width: 991px)
+        width: 100%
+        padding-top: 20px
+      .s_form
+        +flex
+        +ai-center
+        width: 100%
+        .form-control
+          height: 40px
+          width: 315px
+          background: #ffffff
+          +border-radius(3px)
+          border: 1px solid #DFDFDF
+          margin-right: 10px
+          @media (max-width: 991px)
+            width: calc(100% - 160px)
+          @media (max-width: 575px)
+            width: calc(100% - 140px)
+          &::-webkit-input-placeholder
+            color: #808080
+            font-size: 12px
+            font-family: $raleway
+          &::-moz-placeholder
+            color: #808080
+            font-size: 12px
+            font-family: $raleway
+          &::-ms-input-placeholder
+            color: #808080
+            font-size: 12px
+            font-family: $raleway
+          &:-moz-placeholder
+            color: #808080
+            font-size: 12px
+            font-family: $raleway
+          &:-ms-input-placeholder
+            color: #808080
+            font-size: 12px
+            font-family: $raleway
+        .s_btn
+          background: linear-gradient(180deg, #E55D2E 0%, #D6320B 100%)
+          width: 150px
+          height: 40px
+          border: 0
+          +border-radius(3px)
+          +flex
+          +ai-center
+          +j-center
+          color: #ffffff
+          text-decoration: none
+          font-family: $raleway
+          font-weight: 700
+          font-size: 14px
+          +transition($transition_default)
+          @media (max-width: 575px)
+            width: 130px
+          &:hover
+            background: linear-gradient(180deg, #F86432 0%, #E45C2D 100%)
+          span
+            display: inline-block
+            position: relative
+            padding-right: 25px
+            &:before
+              +b_a
+              right: 0
+              top: 0
+              bottom: 0
+              margin: auto
+              width: 14px
+              height: 9px
+              background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='14' height='9' viewBox='0 0 14 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M8.5 1L12.5 4.5L8.5 8' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3cpath d='M12.5 4.5H1' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+
+
+footer
+  .footer_middle
+    padding: 35px 0
+    @media (max-width: 1200px)
+      padding: 30px 0
+    @media (max-width: 991px)
+      padding: 20px 0
+  .site_name
+    font-weight: 500
+    font-size: 38px
+    line-height: 1.2
+    text-decoration: none
+    color: #323232
+    font-family: $raleway
+    display: inline-block
+    margin-bottom: 25px
+    @media (max-width: 1200px)
+      font-size: 30px
+      margin-bottom: 10px
+    + p
+      font-size: 12px
+      line-height: 19px
+      color: #323232
+      @media (min-width: 1201px)
+        max-width: 280px
+  .c_box
+    @media (max-width: 1200px)
+      margin-left: 0
+    > div
+      width: 100%
+  .location
+    margin-left: 0
+    white-space: normal
+  .phone
+    display: inline-block
+    margin-bottom: 10px
+  ul.row
+    li
+      margin-bottom: 10px
+      a
+        color: #323232
+        text-decoration: none
+        font-size: 15px
+        font-weight: 500
+        font-family: $raleway
+        &:hover, &.active
+          text-decoration: none
+          color: $color_orange
+          font-weight: 700
+.copyright
+  background: #DFDFDF
+  font-size: 11px
+  color: #666
+  font-family: $roboto
+  padding: 8px 0
+  line-height: 1.2
+  .row
+    > div
+      @media (max-width: 767px)
+        &:first-child
+          margin-bottom: 10px
+
+
+
+
+.breadcrumb
+  background: none
+  margin: 0
+  padding: 0
+  li
+    position: relative
+    padding: 0 12px
+    &:first-child
+      padding-left: 15px
+      &:before
+        +b_a
+        left: 0
+        top: 0
+        bottom: 0
+        margin: auto
+        width: 10px
+        height: 9px
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='10' height='9' viewBox='0 0 10 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1.20273 8.99856C1.20273 7.68424 1.20273 6.36992 1.20273 5.0484C0.802792 5.0484 0.410122 5.0484 0 5.0484C0.0203607 5.02248 0.0290867 5.00809 0.0407213 4.99513C0.357766 4.67555 0.676265 4.35596 0.99331 4.03782C1.3089 3.71968 1.62449 3.40297 1.94008 3.08483C2.17714 2.84586 2.41419 2.60545 2.65125 2.36649C2.89849 2.11744 3.14572 1.86696 3.39296 1.61791C3.63293 1.37463 3.87435 1.13278 4.11431 0.889494C4.35864 0.643328 4.60297 0.397163 4.84584 0.150997C4.88365 0.112129 4.92001 0.0703816 4.95492 0.0286342C4.98837 -0.0116736 5.01309 -0.00735489 5.04799 0.0286342C5.17161 0.159635 5.29668 0.289195 5.42467 0.415877C5.62682 0.618856 5.83333 0.818955 6.03549 1.02193C6.28854 1.2753 6.54014 1.53154 6.79319 1.78634C7.00989 2.00516 7.22659 2.22397 7.44328 2.44278C7.71088 2.71342 7.97848 2.98262 8.24607 3.25326C8.48458 3.49367 8.72309 3.73551 8.96161 3.97592C9.20739 4.22353 9.45317 4.47113 9.6975 4.72017C9.79785 4.82238 9.89529 4.92891 10 5.0412C9.60006 5.0412 9.20448 5.0412 8.80163 5.0412C8.80163 6.3656 8.80163 7.67992 8.80163 9C7.89849 9 7.00262 9 6.09948 9C6.09948 8.96977 6.09948 8.94098 6.09948 8.91363C6.09948 8.4069 6.10093 7.90161 6.09948 7.39489C6.09802 7.19479 6.09802 6.99325 6.08348 6.79315C6.06457 6.54698 6.03258 6.30082 5.90896 6.07768C5.78243 5.84879 5.58464 5.71779 5.33013 5.66453C5.10762 5.61846 4.88802 5.6271 4.66987 5.68756C4.34846 5.77681 4.16812 6.00139 4.08813 6.31089C4.03432 6.51819 4.01542 6.72981 4.01396 6.9443C4.01105 7.61514 4.00524 8.28598 3.99942 8.95681C3.99942 8.96833 3.99796 8.98129 3.99796 8.99856C3.0701 8.99856 2.13933 8.99856 1.20273 8.99856Z' fill='%23426492'/%3e%3c/svg%3e ")
+    + li
+      &:before
+        +b_a
+        left: -2px
+        top: 0
+        bottom: 0
+        margin: auto
+        width: 4px
+        height: 6px
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='4' height='6' viewBox='0 0 4 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1L3 3L1 5' stroke='%23426492' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+    &:last-child
+      a
+        color: #666
+    a
+      color: $color_blue
+      font-size: 11px
+      font-family: $roboto
+      text-decoration: none
+      &:hover
+        text-decoration: none
+        color: $color_orange
+
+.category_list
+  > div
+    margin-bottom: 20px
+  .category_item
+    +flex
+    +wrap
+    text-align: center
+    min-height: 216px
+    background: #fff
+    border: 1px solid #DFDFDF
+    +border-radius(3px)
+    +transition($transition_default)
+    text-decoration: none
+    padding: 10px 20px 20px
+    &:hover
+      +box-shadow(3px 4px 35px rgba(0, 0, 0, 0.12))
+      .category_item_name
+        color: $color_orange
+    picture
+      display: block
+      width: 100%
+      position: relative
+      height: 135px
+      img
+        position: absolute
+        +m_a
+    .category_item_name
+      width: 100%
+      text-align: center
+      font: 500 16px/19px $raleway
+      color: #323232
+      +transition($transition_default)
+
+.page_content
+  padding-bottom: 15px
+
+
+.filter_box
+  @media (max-width: 991px)
+    margin-bottom: 20px
+
+  .filter_box_title
+    color: #323232
+    font-weight: 600
+    font-family: $raleway
+    font-size: 16px
+    position: relative
+    height: 55px
+    background: #DFDFDF
+    +border-radius(3px 3px 0 0)
+    +flex
+    +ai-center
+    padding: 5px 20px
+    @media (max-width: 991px)
+      height: 45px
+      padding: 5px 15px
+    &:before
+      +b_a
+      right: 20px
+      top: 0
+      bottom: 0
+      margin: auto
+      width: 10px
+      height: 6px
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M8.5 1L5 5L1.5 1' stroke='%23323232' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+
+
+  .mf_title
+    @media (min-width: 992px)
+      display: none
+
+  .filter_form
+    @media (max-width: 991px)
+      display: none
+  .filter_items
+    +border-radius(3px)
+    background: #fff
+    border: 1px solid #DFDFDF
+
+    .btn_default
+      height: 55px
+      max-width: 100%
+      font-family: $raleway
+      font-weight: 700
+      +border-radius(0 0 3px 3px)
+      @media (max-width: 991px)
+        height: 45px
+    .filter_item
+      padding: 15px 20px 25px
+      border-bottom: 1px solid #DFDFDF
+      @media (max-width: 991px)
+        padding: 10px 15px
+      &:last-of-type
+        border-bottom: 0
+      .filter_title
+        color: #323232
+        font-weight: 600
+        font-family: $raleway
+        font-size: 14px
+        position: relative
+        margin-bottom: 10px
+        @media (max-width: 991px)
+          margin-bottom: 0
+        &:before
+          +b_a
+          right: 0
+          top: 0
+          bottom: 0
+          margin: auto
+          width: 10px
+          height: 6px
+          background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M8.5 1L5 5L1.5 1' stroke='%23808080' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+
+    .filter_body
+      @media (max-width: 991px)
+        display: none
+        padding-top: 10px
+      .checkbox_list
+        margin: 0
+        li
+          .checkbox
+            position: relative
+            input
+              position: absolute
+              opacity: 0
+              &:checked
+                + label
+                  &:before
+                    background: #DB4218
+                    border: 1px solid #DB4218
+                  &:after
+                    opacity: 1
+
+              + label
+                position: relative
+                font-family: $roboto
+                font-size: 14px
+                color: #323232
+                padding-left: 30px
+                cursor: pointer
+                &:before
+                  +b_a
+                  left: 0
+                  top: 0
+                  bottom: 0
+                  margin: auto
+                  width: 20px
+                  height: 20px
+                  background: #F8F8F9
+                  border: 1px solid #DFDFDF
+                  +border-radius(2px)
+                &:after
+                  +b_a
+                  left: 4px
+                  top: 0
+                  bottom: 0
+                  margin: auto
+                  width: 12px
+                  height: 8px
+                  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 3L5 7L11 1' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+                  opacity: 0
+
+
+      .range_values
+        .range_row
+          +flex
+          +ai-center
+          +j-beetween
+          color: #808080
+          font-size: 12px
+          font-family: $roboto
+          margin-bottom: 6px
+        .range
+          height: 3px
+          background: #DFDFDF
+          border: 0
+          position: relative
+          margin-bottom: 5px
+          .ui-widget-header
+            background: $color_orange
+            height: 3px
+            border: 0
+          .ui-slider-handle
+            min-width: 15px
+            width: 15px
+            height: 15px
+            background: #F8F8F9
+            border: 3px solid $color_orange
+            +border-radius(50%)
+            position: absolute
+            top: -6px
+            &:focus
+              outline: none
+              +box-shadow(none)
+        .tasks_group
+          +flex
+          +ai-center
+          margin: 0 -10px 15px
+          span
+            +flex
+            width: 50%
+            padding: 0 10px
+            input
+              width: 100%
+              background: #F8F8F9
+              border: 1px solid #DFDFDF
+              +border-radius(2px)
+              height: 35px
+              padding-left: 10px
+              &::-webkit-input-placeholder
+                color: #808080
+                font-size: 12px
+                font-family: $roboto
+              &::-moz-placeholder
+                color: #808080
+                font-size: 12px
+                font-family: $roboto
+              &::-ms-input-placeholder
+                color: #808080
+                font-size: 12px
+                font-family: $roboto
+              &:-moz-placeholder
+                color: #808080
+                font-size: 12px
+                font-family: $roboto
+              &:-ms-input-placeholder
+                color: #808080
+                font-size: 12px
+                font-family: $roboto
+
+
+
+.page_content
+  .c_subnav
+    margin-bottom: 35px
+.reset
+  text-align: center
+  background: none
+  width: 100%
+  height: 55px
+  +flex
+  +ai-center
+  +j-center
+  font-size: 14px
+  font-weight: 700
+  font-family: $raleway
+  border: 0
+  &:hover
+    color: $color_orange
+    span
+      &:before, &:after
+        background: $color_orange
+  span
+    position: relative
+    display: flex
+    padding-right: 25px
+    &:before, &:after
+      +b_a
+      width: 15px
+      height: 2px
+      background: #323232
+      right: 0
+      top: 0
+      bottom: 0
+      margin: auto
+      +transition($transition_default)
+    &:before
+      +transform(rotate(-45deg))
+    &:after
+      +transform(rotate(45deg))
+
+
+
+.products_list
+  margin-bottom: 15px
+  > div
+    margin-bottom: 20px
+  .product_item
+    position: relative
+    background: #fff
+    padding: 20px 20px 15px
+    +border-radius(3px)
+    border: 1px solid #DFDFDF
+    +transition($transition_default)
+    &:hover
+      +box-shadow(3px 4px 35px rgba(0, 0, 0, 0.12))
+      z-index: 2
+      .product_item_title
+        color: $color_orange
+      .btn_default
+        &.show_more
+          +flex
+    picture
+      display: block
+      width: 100%
+      height: 155px
+      position: relative
+      text-align: center
+      margin-bottom: 5px
+
+      img
+        position: absolute
+        +m_a
+        max-width: 99%
+        max-height: 99%
+    .product_item_title
+      font-family: $roboto
+      font-weight: 500
+      font-size: 16px
+      color: #323232
+      display: inline-block
+      text-decoration: none
+      line-height: 21px
+      text-align: center
+      width: 100%
+      min-height: 70px
+      margin-bottom: 5px
+    .btn_default
+      &.show_more
+        width: 100%
+        max-width: 100%
+        height: 55px
+        +border-radius(0 0 3px 3px)
+        +flex
+        +ai-center
+        +j-center
+
+        font-size: 14px
+        font-weight: 700
+        font-family: $raleway
+        @media (max-width: 991px)
+          height: 45px
+
+        @media (min-width: 992px)
+          display: none
+          position: absolute
+          top: 100%
+          left: 0
+          right: 0
+        span
+          position: relative
+          +flex
+          padding-right: 30px
+          &:before
+            +b_a
+            right: 0
+            top: 0
+            bottom: 0
+            margin: auto
+            width: 13px
+            height: 13px
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M6.5 1V12' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3cpath d='M12 6.5L1 6.5' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+
+
+
+.price
+  text-align: center
+  color: $color_blue
+  font-size: 22px
+  font-weight: 500
+  font-family: $roboto
+  @media (max-width: 991px)
+    font-size: 20px
+
+.availability
+  text-align: center
+  margin-bottom: 5px
+  &.ok
+    span
+      &:before
+        width: 12px
+        height: 8px
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 3L5 7L11 1' stroke='%23426492' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+  span
+    font-size: 12px
+    line-height: 14px
+    color: #323232
+    display: inline-block
+    position: relative
+    padding-left: 20px
+    &:before
+      +b_a
+      left: 0
+      top: 0
+      bottom: 0
+      margin: auto
+.paging_box
+  background: #fff
+  border: 1px solid #DFDFDF
+  +border-radius(2px)
+  padding: 10px 25px
+  +flex
+  +ai-center
+  +j-beetween
+  +wrap
+  @media (max-width: 575px)
+    +j-center
+  .pages
+    color: #333
+    font-family: $roboto
+    font-size: 12px
+    @media (max-width: 575px)
+      width: 100%
+      margin-bottom: 20px
+      text-align: center
+
+  .pagination
+    @media (max-width: 575px)
+      width: 100%
+      +flex
+      +j-center
+    li
+      a
+        width: 25px
+        height: 25px
+        +flex
+        +ai-center
+        +j-center
+        +border-radius(2px)
+        margin: 0 1px
+        text-decoration: none
+        font-size: 16px
+        color: #323232
+        font-family: $roboto
+        &:hover, &.active
+          background: $color_blue
+          color: #fff
+        &.prev, &.next
+          position: relative
+          border: 1px solid #DFDFDF
+          background: #F8F8F9
+          &:hover
+            background: #DB4218
+            border: 1px solid #DB4218
+          &:before
+            +b_a
+            +m_a
+            width: 7px
+            height: 10px
+        &.prev
+          &:hover
+            &:before
+              background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='7' height='10' viewBox='0 0 7 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M6 9L1 5L6 1' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+          &:before
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='7' height='10' viewBox='0 0 7 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M6 9L1 5L6 1' stroke='%23808080' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+        &.next
+          &:hover
+            &:before
+              background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='7' height='10' viewBox='0 0 7 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1L6 5L1 9' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+          &:before
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='7' height='10' viewBox='0 0 7 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1L6 5L1 9' stroke='%23808080' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+
+.sidebar
+  @media (max-width: 991px)
+    -ms-flex: 0 0 100%
+    flex: 0 0 100%
+    max-width: 100%
+    .d-md-block
+      display: none !important
+.content
+  @media (max-width: 991px)
+    -ms-flex: 0 0 100%
+    flex: 0 0 100%
+    max-width: 100%
+
+
+
+.product_row
+  background: #ffffff
+  +border-radius(3px)
+  border: 1px solid #DFDFDF
+  padding: 35px
+  margin-bottom: 45px
+  @media (max-width: 767px)
+    padding: 20px 15px
+    margin-bottom: 30px
+  .product_img
+    width: 100%
+    height: 100%
+    border-right: 1px solid #DFDFDF
+    +flex
+    +ai-center
+    +j-center
+    @media (max-width: 767px)
+      border-right: 0
+      margin-bottom: 10px
+    @media (min-width: 1201px)
+      min-height: 320px
+
+  .brand
+    width: 100%
+    height: 76px
+    background: #f8f8f9
+    +border-radius(2px)
+    position: relative
+    margin-bottom: 30px
+    @media (max-width: 767px)
+      height: auto
+      padding: 10px
+      text-align: center
+      margin-bottom: 20px
+    img
+      @media (min-width: 768px)
+        position: absolute
+        +m_a
+        max-width: 99%
+        max-height: 99%
+
+  .articul
+    font-size: 11px
+    color: #323232
+    font-family: $roboto
+    margin-bottom: 15px
+  .price_availability
+    +flex
+    +ai-end
+    margin-bottom: 25px
+    .price
+      margin-right: 35px
+
+.btn_default
+  &.show_map
+    font-family: $raleway
+    font-weight: 700
+    span
+      position: relative
+      display: inline-block
+      padding-left: 20px
+      &:before
+        +b_a
+        left: 0
+        top: 0
+        bottom: 0
+        margin: auto
+        width: 11px
+        height: 15px
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='11' height='15' viewBox='0 0 11 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.5 0C2.45929 0 0 2.3475 0 5.25C0 9.1875 5.5 15 5.5 15C5.5 15 11 9.1875 11 5.25C11 2.3475 8.54071 0 5.5 0ZM5.5 7.125C4.41571 7.125 3.53571 6.285 3.53571 5.25C3.53571 4.215 4.41571 3.375 5.5 3.375C6.58429 3.375 7.46429 4.215 7.46429 5.25C7.46429 6.285 6.58429 7.125 5.5 7.125Z' fill='white'/%3e%3c/svg%3e ")
+.nav-tabs
+  +flex
+  +ai-center
+  +wrap
+  border: 0
+  .nav-item
+    @media (min-width: 578px)
+      flex-grow: 1
+    @media (max-width: 575px)
+      width: 100%
+      margin-bottom: 10px
+    .nav-link
+      width: 100%
+      height: 35px
+      background: #fff
+      +border-radius(2px)
+      color: #323232
+      +flex
+      +ai-center
+      +j-center
+      font-weight: 600
+      font-family: $raleway
+      font-size: 14px
+      text-decoration: none
+      border: 0
+      &.active, &:hover
+        background: $gradient_blue
+        color: #fff
+
+.tab-content
+  .tab-pane
+    padding: 30px 0
+    font-size: 13px
+    line-height: 19px
+    color: #666666
+    font-family: $roboto
+    @media (max-width: 767px)
+      padding: 20px 0
+
+.custom_table
+  .tr
+    +flex
+    +ai-center
+    position: relative
+    margin-bottom: 15px
+    @media (max-width: 575px)
+      border-bottom: 1px dashed #808080
+    &:before
+      +b_a
+      left: 0
+      right: 0
+      bottom: 5px
+      border-bottom: 1px dashed #808080
+      @media (max-width: 575px)
+        display: none
+    .td
+      width: 50%
+      span
+        position: relative
+        display: inline-block
+        background: #F8F8F9
+      &:first-child
+        font-family: $roboto
+        font-weight: 500
+        font-size: 13px
+        color: #323232
+        span
+          padding-right: 5px
+
+      &:last-child
+        text-align: right
+        font-size: 13px
+        font-family: $roboto
+        color: #323232
+        span
+          padding-left: 5px
+
+
+
+.page_content
+  .pr_item
+    .text
+      +flex
+      +ai-center
+      font-size: 14px
+      color: #323232
+      span
+        color: #323232
+        font-family: $roboto
+      a
+        color: #323232
+        text-decoration: none
+        font-family: $roboto
+        &:hover
+          text-decoration: underline
+          color: $color_orange
+.shops_list
+  margin-bottom: 40px
+  .shop_item
+    margin-bottom: 25px
+    +flex
+    +ai-center
+    +wrap
+    .shop_img
+      width: 380px
+      height: 150px
+      background-size: cover
+      background-position: center
+      margin-right: 30px
+      @media (max-width: 1200px)
+        margin-right: 20px
+        width: 280px
+      @media (max-width: 991px)
+        margin-bottom: 5px
+      @media (max-width: 767px)
+        width: 100%
+        height: 200px
+      @media (max-width: 575px)
+        height: 180px
+    .shop_item_info
+      width: calc(100% - 410px)
+      +flex
+      +ai-center
+      +wrap
+      @media (max-width: 1200px)
+        width: calc(100% - 300px)
+      @media (max-width: 991px)
+        width: 100%
+      .shop_info_row
+        +flex
+        @media (max-width: 767px)
+          +wrap
+        > div
+          +flex
+          +ai-center
+          +wrap
+          margin-right: 40px
+          @media (max-width: 1200px)
+            margin-right: 20px
+          @media (max-width: 767px)
+            width: 100%
+          &:first-child
+            max-width: 255px
+            @media (max-width: 767px)
+              max-width: 100%
+              margin-bottom: 20px
+      .shop_title
+        font-size: 16px
+        font-family: $raleway
+        font-weight: 600
+        color: #323232
+        margin-bottom: 12px
+        width: 100%
+      .location
+        margin-left: 0
+        white-space: normal
+        color: $color_blue
+        text-decoration: none
+        font-size: 14px
+        &:before
+          background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='11' height='15' viewBox='0 0 11 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.5 0C2.45929 0 0 2.3475 0 5.25C0 9.1875 5.5 15 5.5 15C5.5 15 11 9.1875 11 5.25C11 2.3475 8.54071 0 5.5 0ZM5.5 7.125C4.41571 7.125 3.53571 6.285 3.53571 5.25C3.53571 4.215 4.41571 3.375 5.5 3.375C6.58429 3.375 7.46429 4.215 7.46429 5.25C7.46429 6.285 6.58429 7.125 5.5 7.125Z' fill='%23426492'/%3e%3c/svg%3e ")
+
+
+
+.f_box
+  border: 1px solid #DFDFDF
+  background: #fff
+  text-align: center
+  padding: 45px 15px 45px
+  +border-radius(3px)
+  .f_box_title
+    color: #323232
+    font-size: 34px
+    font-weight: 600
+    font-family: $raleway
+    text-align: center
+    line-height: 1.2
+    margin-bottom: 8px
+    @media (max-width: 1200px)
+      font-size: 30px
+    @media (max-width: 991px)
+      font-size: 25px
+    @media (max-width: 767px)
+      font-size: 22px
+  .f_box_subtitle
+    font-family: $roboto
+    font-size: 14px
+    color: #323232
+    margin-bottom: 30px
+
+
+  .custom_form
+    max-width: 792px
+    margin: auto
+  .field
+    margin-bottom: 15px
+  .form-control
+    background: #F8F8F9
+    border: 1px solid #DFDFDF
+    +border-radius(3px)
+    height: 35px
+    font-size: 14px
+    padding-left: 15px
+    &::-webkit-input-placeholder
+      color: #808080
+      font-size: 12px
+      font-family: $raleway
+    &::-moz-placeholder
+      color: #808080
+      font-size: 12px
+      font-family: $raleway
+    &::-ms-input-placeholder
+      color: #808080
+      font-size: 12px
+      font-family: $raleway
+    &:-moz-placeholder
+      color: #808080
+      font-size: 12px
+      font-family: $raleway
+    &:-ms-input-placeholder
+      color: #808080
+      font-size: 12px
+      font-family: $raleway
+  textarea.form-control
+    height: 90px
+
+  .btn_box
+    +flex
+    +j-center
+    .btn_default
+      +box-shadow(1px 0px 20px rgba(229, 93, 46, 0.25))
+      position: absolute
+      bottom: -65px
+
+.page_content
+  .f_box
+    margin-bottom: 45px
+    @media (max-width: 1200px)
+      margin-bottom: 30px
+
+
+
+
+.modal
+  .modal-dialog
+    @media (min-width: 1201px)
+      max-width: 1200px
+    .modal-content
+      border: 0
+    .modal-body
+      padding: 0
+      .f_box
+        margin-bottom: 0
+
+    .close
+      position: absolute
+      top: 40px
+      right: 40px
+      width: 30px
+      height: 30px
+      opacity: 1
+      @media (max-width: 1200px)
+        top: 15px
+        right: 15px
+      @media (max-width: 575px)
+        top: 5px
+        right: 5px
+      &:before, &:after
+        +b_a
+        +m_a
+        width: 22px
+        height: 2px
+        background: #666
+      &:before
+        +transform(rotate(45deg))
+      &:after
+        +transform(rotate(-45deg))
+
+
+
+.c_subnav_d
+  display: none
+  max-height: 425px
+  overflow: auto
+  &::-webkit-scrollbar
+    -webkit-appearance: none
+    width: 0
+  &::-webkit-scrollbar:vertical
+    width: 3px
+    background: #c6c8ca
+    border-radius: 3px
+  &::-webkit-scrollbar-thumb
+    border-radius: 3px
+    background-color: $color_orange
+  @media (min-width: 992px)
+    position: absolute
+    z-index: 999
+    top: 100%
+    left: 0
+
+
+#map
+  height: 400px
+  width: 100%
+  margin-bottom: 45px
+  @media (max-width: 1200px)
+    margin-bottom: 30px
+  @media (max-width: 575px)
+    height: 300px
+
+
+.content_baloon
+  min-width: 190px
+  .title
+    color: #323232
+    font-size: 14px
+    font-weight: 500
+    font-family: $roboto
+    margin-bottom: 5px
+  .address
+    font-family: $roboto
+    font-size: 12px
+    color: #323232
+    margin-bottom: 8px
+  ul
+    li
+      margin-bottom: 5px
+      a
+        font-size: 12px
+        color: #323232
+        font-family: $roboto
+        text-decoration: none
+        &:hover
+          color: $color_orange
+          text-decoration: underline
+.shop_info_row
+  .content_baloon
+    display: none
+
+
+.ymaps-2-1-77-balloon__close-button
+  width: 12px !important
+  height: 12px !important
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1L11 11' stroke='%23DFDFDF' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3e%3cpath d='M11 1L0.999999 11' stroke='%23DFDFDF' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ") !important
+  opacity: 1 !important
+  margin-right: 15px
+  margin-top: 15px
+
